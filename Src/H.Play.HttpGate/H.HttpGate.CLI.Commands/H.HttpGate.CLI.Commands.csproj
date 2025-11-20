@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\H.Necessaire\Src\H.Necessaire\CLI\H.Necessaire.Runtime.CLI\H.Necessaire.Runtime.CLI.csproj" />
+    <ProjectReference Include="..\H.HttpGate.UseCases\H.HttpGate.UseCases.csproj" />
+  </ItemGroup>
+
+</Project>

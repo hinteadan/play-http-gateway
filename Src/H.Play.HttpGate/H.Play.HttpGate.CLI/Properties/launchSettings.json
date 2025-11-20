@@ -1,0 +1,14 @@
+{
+  "profiles": {
+
+    "CLI": {
+      "commandName": "Project"
+    },
+
+    "CLI - debug DebugUseCase": {
+      "commandName": "Project",
+      "commandLineArgs": "debug DebugUseCase"
+    }
+
+  }
+}
