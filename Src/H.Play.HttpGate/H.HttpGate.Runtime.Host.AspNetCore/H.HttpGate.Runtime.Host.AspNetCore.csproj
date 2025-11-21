@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\H.HttpGate.Ocelot\ocelot.json" Link="ocelot.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ocelot" Version="24.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\H.Necessaire\Src\H.Necessaire\H.Necessaire\H.Necessaire.csproj" />
+    <ProjectReference Include="..\H.HttpGate.Actions\H.HttpGate.Actions.csproj" />
+    <ProjectReference Include="..\H.HttpGate.Contracts.Public\H.HttpGate.Contracts.Public.csproj" />
+    <ProjectReference Include="..\H.HttpGate.Core\H.HttpGate.Core.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\H.HttpGate.Ocelot\H.HttpGate.Ocelot.projitems" Label="Shared" />
+
+</Project>

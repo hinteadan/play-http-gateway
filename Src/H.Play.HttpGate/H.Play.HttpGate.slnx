@@ -4,6 +4,7 @@
     <Project Path="../../H.Necessaire/Src/H.Necessaire/CLI/H.Necessaire.CLI/H.Necessaire.CLI.csproj" />
     <Project Path="../../H.Necessaire/Src/H.Necessaire/CLI/H.Necessaire.Runtime.CLI/H.Necessaire.Runtime.CLI.csproj" />
     <Project Path="../../H.Necessaire/Src/H.Necessaire/CLI/H.Necessaire.Runtime.UI.CLI/H.Necessaire.Runtime.UI.CLI.csproj" />
+    <Project Path="../../H.Necessaire/Src/H.Necessaire/H.Necessaire.Runtime.Integration.NetCore/H.Necessaire.Runtime.Integration.NetCore.csproj" />
     <Project Path="../../H.Necessaire/Src/H.Necessaire/H.Necessaire.Runtime/H.Necessaire.Runtime.csproj" />
     <Project Path="../../H.Necessaire/Src/H.Necessaire/H.Necessaire.Serialization/H.Necessaire.Serialization.csproj" />
     <Project Path="../../H.Necessaire/Src/H.Necessaire/H.Necessaire/H.Necessaire.csproj" />
@@ -11,10 +12,20 @@
     <Project Path="../../H.Necessaire/Src/H.Necessaire/Modules/Runtime/CLI/H.Necessaire.Runtime.CLI.UI/H.Necessaire.Runtime.CLI.UI.csproj" />
     <Project Path="../../H.Necessaire/Src/H.Necessaire/Modules/Runtime/UI/H.Necessaire.Runtime.UI/H.Necessaire.Runtime.UI.csproj" />
   </Folder>
+  <Folder Name="/Docs/">
+    <File Path="../../README.md" />
+  </Folder>
   <Folder Name="/H.HttpGate/">
+    <Project Path="H.HttpGate.Actions/H.HttpGate.Actions.csproj" Id="b8ae3062-180e-4bfb-9d38-daf5b742df61" />
     <Project Path="H.HttpGate.CLI.Commands/H.HttpGate.CLI.Commands.csproj" Id="67843ed3-9293-4b16-88fc-a7d8e1bac266" />
     <Project Path="H.HttpGate.Contracts.Public/H.HttpGate.Contracts.Public.csproj" Id="5a229a32-a8ed-45d3-b2ff-c001721958a9" />
+    <Project Path="H.HttpGate.Core/H.HttpGate.Core.csproj" Id="d6ebfab0-b0f5-404b-9e22-d1a53be3cd03" />
+    <Project Path="H.HttpGate.Ocelot/H.HttpGate.Ocelot.shproj" Id="fedfc593-a54d-4a9c-bad1-e31bbfc3872c" />
+    <Project Path="H.HttpGate.Runtime.Host.AspNetCore/H.HttpGate.Runtime.Host.AspNetCore.csproj" Id="9de14d2d-3996-41eb-905b-df6e2f3b04cc" />
     <Project Path="H.HttpGate.UseCases/H.HttpGate.UseCases.csproj" Id="28f2e845-3482-447d-aaaa-45b405ee3718" />
+  </Folder>
+  <Folder Name="/Testicles/">
+    <Project Path="H.HttpGate.Testicles.Downstream.Host.AspNetCore/H.HttpGate.Testicles.Downstream.Host.AspNetCore.csproj" Id="673633a3-d841-458f-8db6-ccdc84a39555" />
   </Folder>
   <Project Path="H.Play.HttpGate.CLI/H.Play.HttpGate.CLI.csproj" />
 </Solution>
