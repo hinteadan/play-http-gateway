@@ -9,11 +9,12 @@ namespace H.HttpGate.Ocelot
     {
         public static THostAppBuilder AddHHttpGateOcelot<THostAppBuilder>(this THostAppBuilder builder) where THostAppBuilder : IHostApplicationBuilder
         {
-            File.Copy(
-                Path.Combine(builder.Environment.ContentRootPath, "..", "H.HttpGate.Ocelot", "ocelot.json"),
-                Path.Combine(builder.Environment.ContentRootPath, "ocelot.json"),
-                overwrite: true
-            );
+            DirectoryInfo contentDir = new DirectoryInfo(Path.Combine(builder.Environment.ContentRootPath, "..", "H.HttpGate.Ocelot"));
+            IEnumerable<FileInfo> ocelotConfigFiles = contentDir.EnumerateFiles("ocelot*.json", SearchOption.TopDirectoryOnly);
+            foreach (FileInfo ocelotConfigFile in ocelotConfigFiles)
+            {
+                ocelotConfigFile.CopyTo(Path.Combine(builder.Environment.ContentRootPath, ocelotConfigFile.Name), overwrite: true);
+            }
 
             builder
                 .Services
@@ -25,7 +26,8 @@ namespace H.HttpGate.Ocelot
             builder
                 .Configuration
                 .SetBasePath(builder.Environment.ContentRootPath)
-                .AddOcelot()
+                .AddJsonFile("ocelot.json")
+                .AddJsonFile($"ocelot.{builder.Environment.EnvironmentName}.json")
                 ;
 
             builder.Services
@@ -37,6 +39,8 @@ namespace H.HttpGate.Ocelot
 
         public static async Task<TAppBuilder> UseHHttpGateOcelot<TAppBuilder>(this TAppBuilder app) where TAppBuilder : IApplicationBuilder
         {
+            app.Use((ctx, next) => { ctx.Request.EnableBuffering(); return next(); });
+
             await app.UseOcelot(new OcelotPipelineConfiguration().Configure(app.ApplicationServices));
 
             return app;

@@ -27,6 +27,9 @@ namespace H.HttpGate.Ocelot
             if (gateActionsStream is null)
                 return OperationResult.Win();
 
+            HSafe.Run(() => { if (httpContext.Request.Body.CanSeek) httpContext.Request.Body.Position = 0; });
+            HSafe.Run(() => { if (httpContext.Response.Body.CanSeek) httpContext.Response.Body.Position = 0; });
+
             if (!(await HSafe.Run(async () => await Build(httpContext.Items.DownstreamRequest(), httpContext.Items.DownstreamResponse())).LogError(log, "Build HHttpGateResponse for Hs HttpGate Actions")).Ref(out var dataBuildRes, out var data))
                 return dataBuildRes;
 
@@ -44,24 +47,26 @@ namespace H.HttpGate.Ocelot
             string ocelotRequestContent = null;
             string ocelotResponseContent = null;
 
-            if (ocelotRequest.HasContent)
+            if (ocelotRequest?.HasContent == true)
+            {
                 ocelotRequestContent = await ocelotRequest.Request.Content.ReadAsStringAsync();
-            ocelotResponseContent = await ocelotResponse.Content.ReadAsStringAsync();
+            }
+            ocelotResponseContent = ocelotResponse is null ? null : await ocelotResponse.Content.ReadAsStringAsync();
 
             return new HHttpGateResponse
             {
-                Request = new HHttpGateRequest
+                Request = ocelotRequest.MorphIfNotNull(ocelotRequest => new HHttpGateRequest
                 {
                     URL = ocelotRequest.ToUri(),
                     Headers = ocelotRequest.Headers?.ToDictionary(h => h.Key, h => h.Value?.ToNonEmptyArray()),
                     HttpMethod = ocelotRequest.Method,
                     HttpVersion = ocelotRequest.Request?.Version?.ToString(),
                     Content = ocelotRequestContent,
-                },
-                Headers = ocelotResponse.Headers?.ToDictionary(h => h.Key, h => h.Values?.ToNonEmptyArray()),
-                HttpStatusCode = (int)ocelotResponse.StatusCode,
-                HttpStatusLabel = ocelotResponse.StatusCode.ToString(),
-                HttpStatusReason = ocelotResponse.ReasonPhrase,
+                }),
+                Headers = ocelotResponse?.Headers?.ToDictionary(h => h.Key, h => h.Values?.ToNonEmptyArray()),
+                HttpStatusCode = (int?)(ocelotResponse?.StatusCode) ?? -1,
+                HttpStatusLabel = ocelotResponse?.StatusCode.ToString(),
+                HttpStatusReason = ocelotResponse?.ReasonPhrase,
                 Content = ocelotResponseContent,
             };
         }

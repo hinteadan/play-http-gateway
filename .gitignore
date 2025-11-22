@@ -416,3 +416,13 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# JetBrains Rider
+*.sln.iml
+.idea
+version.txt
+
+**/Secrets/**/*.*
+
+**/H.HttpGate.Runtime.Host.AspNetCore/ocelot*.json
+**/ocelot.Development.*.json

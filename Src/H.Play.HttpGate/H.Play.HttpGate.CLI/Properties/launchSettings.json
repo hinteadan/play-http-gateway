@@ -5,6 +5,11 @@
       "commandName": "Project"
     },
 
+    "CLI - debug ts": {
+      "commandName": "Project",
+      "commandLineArgs": "debug AzureTableStorageService"
+    },
+
     "CLI - debug DebugUseCase": {
       "commandName": "Project",
       "commandLineArgs": "debug DebugUseCase"

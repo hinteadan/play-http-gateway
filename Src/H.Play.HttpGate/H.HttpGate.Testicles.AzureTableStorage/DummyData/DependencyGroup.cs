@@ -1,15 +1,13 @@
-﻿using H.HttpGate.CLI.Commands;
-using H.HttpGate.Testicles.AzureTableStorage;
-using H.Necessaire;
+﻿using H.Necessaire;
 
-namespace H.Play.HttpGate.CLI
+namespace H.HttpGate.Testicles.AzureTableStorage.DummyData
 {
     internal class DependencyGroup : ImADependencyGroup
     {
         public void RegisterDependencies(ImADependencyRegistry dependencyRegistry)
         {
             dependencyRegistry
-                .WithHHttpGateCliCommands()
+                .Register<DummyDataGenerator>(() => new DummyDataGenerator())
                 ;
         }
     }
