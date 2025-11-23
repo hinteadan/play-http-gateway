@@ -24,6 +24,12 @@
     <Project Path="H.HttpGate.Runtime.Host.AspNetCore/H.HttpGate.Runtime.Host.AspNetCore.csproj" Id="9de14d2d-3996-41eb-905b-df6e2f3b04cc" />
     <Project Path="H.HttpGate.UseCases/H.HttpGate.UseCases.csproj" Id="28f2e845-3482-447d-aaaa-45b405ee3718" />
   </Folder>
+  <Folder Name="/H.HttpGate/AzureTableStorageReplication/">
+    <Project Path="AzureTableStorageReplication/H.HttpGate.Actions.AzureTableStorageReplication/H.HttpGate.Actions.AzureTableStorageReplication.csproj" Id="7949100c-b099-4be6-a18d-7c0fa925a1e3" />
+    <Project Path="H.Replication.AzureTableStorage/H.Replication.AzureTableStorage.csproj" Id="526ea1bd-d96f-4ac6-b266-0fc38efdfb81" />
+    <Project Path="H.Replication.Contracts/H.Replication.Contracts.csproj" Id="d2db9a9f-0304-4365-b5dc-b06c9017f911" />
+    <Project Path="H.Replication.Core/H.Replication.Core.csproj" Id="1a837c9f-537e-4297-97e5-586dd965befc" />
+  </Folder>
   <Folder Name="/Testicles/">
     <Project Path="H.HttpGate.Testicles.AzureTableStorage/H.HttpGate.Testicles.AzureTableStorage.csproj" Id="4309f10a-5849-4f9c-8f4a-cc9f6922cfe5" />
     <Project Path="H.HttpGate.Testicles.Downstream.Host.AspNetCore/H.HttpGate.Testicles.Downstream.Host.AspNetCore.csproj" Id="673633a3-d841-458f-8db6-ccdc84a39555" />

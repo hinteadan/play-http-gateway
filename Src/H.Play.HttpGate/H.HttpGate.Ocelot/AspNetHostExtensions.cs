@@ -1,4 +1,5 @@
 ﻿using H.HttpGate.Actions;
+using H.HttpGate.Actions.AzureTableStorageReplication;
 using H.HttpGate.Core;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
@@ -20,6 +21,7 @@ namespace H.HttpGate.Ocelot
                 .Services
                 .AddHHttpGateCoreServices()
                 .AddHHttpGateActionsServices()
+                .AddHHttpGateActionsAzureTableStorageReplicationServices()
                 .AddSingleton<HHttpGateInvoker>()
                 ;
 
