@@ -31,7 +31,7 @@ namespace H.HttpGate.CLI.Commands
                 AppDomain
                 .CurrentDomain
                 .GetAssemblies()
-                .Where(a => a?.GetName()?.Name?.StartsWith("H.HttpGate") == true)
+                .Where(a => a?.GetName()?.Name?.In(["H.HttpGate", "H.Replication"], (name, key) => name.StartsWith(key)) == true)
                 .ToArray()
                 ;
         }

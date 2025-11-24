@@ -5,6 +5,11 @@
       "commandName": "Project"
     },
 
+    "CLI - debug mongo": {
+      "commandName": "Project",
+      "commandLineArgs": "debug MongoDbDebugger"
+    },
+
     "CLI - debug ts": {
       "commandName": "Project",
       "commandLineArgs": "debug AzureTableStorageService"

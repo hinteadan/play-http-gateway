@@ -30,6 +30,9 @@
     <Project Path="H.Replication.Contracts/H.Replication.Contracts.csproj" Id="d2db9a9f-0304-4365-b5dc-b06c9017f911" />
     <Project Path="H.Replication.Core/H.Replication.Core.csproj" Id="1a837c9f-537e-4297-97e5-586dd965befc" />
   </Folder>
+  <Folder Name="/H.HttpGate/AzureTableStorageReplication/MongoDB/">
+    <Project Path="H.Replication.MongoDB/H.Replication.MongoDB.csproj" Id="cc4162f8-23d5-4ad8-a287-cb50516a20af" />
+  </Folder>
   <Folder Name="/Testicles/">
     <Project Path="H.HttpGate.Testicles.AzureTableStorage/H.HttpGate.Testicles.AzureTableStorage.csproj" Id="4309f10a-5849-4f9c-8f4a-cc9f6922cfe5" />
     <Project Path="H.HttpGate.Testicles.Downstream.Host.AspNetCore/H.HttpGate.Testicles.Downstream.Host.AspNetCore.csproj" Id="673633a3-d841-458f-8db6-ccdc84a39555" />

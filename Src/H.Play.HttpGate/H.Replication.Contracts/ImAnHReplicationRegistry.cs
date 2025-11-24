@@ -6,6 +6,6 @@ namespace H.Replication.Contracts
 {
     public interface ImAnHReplicationRegistry
     {
-        Task<OperationResult<HReplicationRequest>> Append(HReplicationRequest replicationRequest);
+        Task<OperationResult<HReplicationRegistryEntry>> Append(HReplicationRequest replicationRequest);
     }
 }

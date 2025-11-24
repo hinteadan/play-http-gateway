@@ -6,6 +6,6 @@ namespace H.Replication.Contracts
 {
     public interface ImAnHReplicationProcessingQueue
     {
-        Task<OperationResult<HReplicationRequest>> Enqueue(HReplicationRequest replicationRequest);
+        Task<OperationResult<HReplicationRegistryEntry>> Enqueue(HReplicationRegistryEntry replicationRegistryEntry);
     }
 }

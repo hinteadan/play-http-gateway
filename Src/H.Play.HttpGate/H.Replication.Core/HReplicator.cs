@@ -20,10 +20,10 @@ namespace H.Replication.Core
 
         public async Task<OperationResult> Enqueue(HReplicationRequest replicationRequest)
         {
-            if (!(await replicationRegistry.Append(replicationRequest).LogError(log, "replicationRegistry.Append(replicationRequest)")).Ref(out var regRes, out replicationRequest))
+            if (!(await replicationRegistry.Append(replicationRequest).LogError(log, "replicationRegistry.Append(replicationRequest)")).Ref(out var regRes, out var replicationRegistryEntry))
                 return regRes;
 
-            if (!(await replicationProcessingQueue.Enqueue(replicationRequest).LogError(log, "replicationProcessingQueue.Enqueue(replicationRequest)")).Ref(out var qRes, out replicationRequest))
+            if (!(await replicationProcessingQueue.Enqueue(replicationRegistryEntry).LogError(log, "replicationProcessingQueue.Enqueue(replicationRegistryEntry)")).Ref(out var qRes, out replicationRegistryEntry))
                 return qRes;
 
             return true;

@@ -4,24 +4,24 @@ namespace H.HttpGate.Testicles.AzureTableStorage
 {
     internal class AzureStorageServiceConfigProvider
     {
-        static readonly Lazy<AzureStorageServiceConfig> lazyAzureStorageServiceConfig = new Lazy<AzureStorageServiceConfig>(LoadAzureStorageServiceConfigFromEbeddedSecrets);
+        static readonly Lazy<AzureStorageServiceConfig> lazyAzureStorageServiceConfig = new Lazy<AzureStorageServiceConfig>(LoadAzureStorageServiceConfigFromEmbeddedSecrets);
         public async Task<OperationResult<AzureStorageServiceConfig>> GetTableStorageConfig()
         {
             return HSafe.Run(() => lazyAzureStorageServiceConfig.Value);
         }
 
-        static AzureStorageServiceConfig LoadAzureStorageServiceConfigFromEbeddedSecrets()
+        static AzureStorageServiceConfig LoadAzureStorageServiceConfigFromEmbeddedSecrets()
         {
             return
                 new AzureStorageServiceConfig
                 {
-                    AccountName = "AzureStorageAccountName.cfg.txt".ReadSecretFromEmbeddedResources()?.Trim(),
-                    AccountKeys = "AzureStorageAccountKeys.cfg.txt".ReadSecretFromEmbeddedResources()?.Split('\n', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)?.ToNonEmptyArray(),
-                    AccountConnectionStrings= "AzureStorageAccountConnectionStrings.cfg.txt".ReadSecretFromEmbeddedResources()?.Split('\n', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)?.ToNonEmptyArray(),
-                    TableServiceEndpoint = "AzureStorageAccountTableServiceEndpoint.cfg.txt".ReadSecretFromEmbeddedResources()?.Trim(),
-                    BlobServiceEndpoint = "AzureStorageAccountBlobServiceEndpoint.cfg.txt".ReadSecretFromEmbeddedResources()?.Trim(),
-                    QueueServiceEndpoint = "AzureStorageAccountQueueServiceEndpoint.cfg.txt".ReadSecretFromEmbeddedResources()?.Trim(),
-                    FileServiceEndpoint = "AzureStorageAccountFileServiceEndpoint.cfg.txt".ReadSecretFromEmbeddedResources()?.Trim(),
+                    AccountName = "AzureStorageAccountName.cfg.txt".ReadSecretFromEmbeddedResources(typeof(AzureStorageServiceConfigProvider).Assembly)?.Trim(),
+                    AccountKeys = "AzureStorageAccountKeys.cfg.txt".ReadSecretFromEmbeddedResources(typeof(AzureStorageServiceConfigProvider).Assembly)?.Split('\n', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)?.ToNonEmptyArray(),
+                    AccountConnectionStrings= "AzureStorageAccountConnectionStrings.cfg.txt".ReadSecretFromEmbeddedResources(typeof(AzureStorageServiceConfigProvider).Assembly)?.Split('\n', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)?.ToNonEmptyArray(),
+                    TableServiceEndpoint = "AzureStorageAccountTableServiceEndpoint.cfg.txt".ReadSecretFromEmbeddedResources(typeof(AzureStorageServiceConfigProvider).Assembly)?.Trim(),
+                    BlobServiceEndpoint = "AzureStorageAccountBlobServiceEndpoint.cfg.txt".ReadSecretFromEmbeddedResources(typeof(AzureStorageServiceConfigProvider).Assembly)?.Trim(),
+                    QueueServiceEndpoint = "AzureStorageAccountQueueServiceEndpoint.cfg.txt".ReadSecretFromEmbeddedResources(typeof(AzureStorageServiceConfigProvider).Assembly)?.Trim(),
+                    FileServiceEndpoint = "AzureStorageAccountFileServiceEndpoint.cfg.txt".ReadSecretFromEmbeddedResources(typeof(AzureStorageServiceConfigProvider).Assembly)?.Trim(),
                 }
                 ;
         }
