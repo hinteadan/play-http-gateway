@@ -1,6 +1,4 @@
-﻿using Azure;
-using Azure.Data.Tables;
-using Azure.Data.Tables.Models;
+﻿using Azure.Data.Tables;
 using H.HttpGate.Testicles.AzureTableStorage.DataContracts;
 using H.HttpGate.Testicles.AzureTableStorage.DummyData;
 using H.Necessaire;
@@ -22,8 +20,6 @@ namespace H.HttpGate.Testicles.AzureTableStorage.Concrete
 
         public async Task Debug()
         {
-            await Task.Delay(3000);
-
             if (!(await azureStorageServiceConfigProvider.GetTableStorageConfig().LogError(log, $"Get Azure Table Storage Config")).RefPayload(out var config))
                 return;
 
@@ -42,7 +38,8 @@ namespace H.HttpGate.Testicles.AzureTableStorage.Concrete
 
             TableSharedKeyCredential azureStorageCredential = new(azureStorgeAccountName, azureStorageKey);
 
-            TableServiceClient tableServiceClient = new TableServiceClient(new Uri(azureTableStorageEndpoint), azureStorageCredential, new TableClientOptions().And(opts => {
+            TableServiceClient tableServiceClient = new TableServiceClient(new Uri(azureTableStorageEndpoint), azureStorageCredential, new TableClientOptions().And(opts =>
+            {
                 opts.Retry.MaxRetries = 0;
             }));
 

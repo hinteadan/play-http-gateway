@@ -77,7 +77,7 @@ namespace H.Replication.AzureServiceBus.Daemons
         {
             if (!(await replicationProcessingQueueProcessor.Process(processMessageEventArgs.Message?.Body?.ToArray()).LogError(log, "replicationProcessingQueueProcessor.Process")).Ref(out var res))
             {
-                await processMessageEventArgs.DeadLetterMessageAsync(processMessageEventArgs.Message, res.Reason, string.Join(",", [..res.FlattenReasons() ?? [], ..res.Comments ?? []]).NullIfEmpty());
+                await processMessageEventArgs.DeadLetterMessageAsync(processMessageEventArgs.Message, res.Reason, string.Join(",", [..res.FlattenReasons() ?? [], ..res.Comments ?? []]).NullIfEmpty()?.EllipsizeIfNecessary(4096));
                 return;
             }
 
