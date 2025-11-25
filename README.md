@@ -190,3 +190,11 @@ flowchart TD
     RegistryMark --> Done(✅)
     
 ```
+
+## Components
+
+- **HTTP Gate**: AppService, implemented in `H.HttpGate.Runtime.Host.AspNetCore`
+- **Replication Registry**: MongoDB, implemented in `H.Replication.MongoDB`
+- **Replication Processing Queue**: _[**WiP** - will be Azure SB Queue]_
+- **Data Replication Service**: _[**WiP** - will be Azure AppService or Azure Functions]_
+- **Replication Destination**: MongoDB

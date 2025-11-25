@@ -1,4 +1,6 @@
 ﻿using H.Necessaire;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 
 namespace H.Replication.MongoDB
@@ -16,13 +18,15 @@ namespace H.Replication.MongoDB
         public async Task Debug()
         {
             using IMongoClient mongoClient = new MongoClient(mongoDbConfig.ConnectionString);
-            IMongoCollection<MongoTestData> mongoCollection = mongoClient.GetDatabase(dbName).GetCollection<MongoTestData>(collectionName);
+            IMongoCollection<BsonDocument> mongoCollection = mongoClient.GetDatabase(dbName).GetCollection<BsonDocument>(collectionName);
 
-            var newData = GenerateDummyData();
+            MongoTestData newData = GenerateDummyData();
 
-            await mongoCollection.ReplaceOneAsync(x => x.ID == newData.ID, newData, new ReplaceOptions { IsUpsert = true });
+            BsonDocument newDoc = newData.ToBsonDocument();
 
-            
+            MongoTestData justToTest = BsonSerializer.Deserialize<MongoTestData>(newDoc);
+
+            await mongoCollection.ReplaceOneAsync(x => x["ID"] == newDoc["ID"], newDoc, new ReplaceOptions { IsUpsert = true });
         }
 
         static MongoTestData GenerateDummyData()

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "H.Replication.DataCopy.Host.AzureFunctions": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7018",
+      "launchBrowser": false
+    }
+  }
+}

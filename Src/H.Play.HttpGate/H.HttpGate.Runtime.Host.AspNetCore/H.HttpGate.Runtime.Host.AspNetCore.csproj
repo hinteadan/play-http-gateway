@@ -15,6 +15,7 @@
     <ProjectReference Include="..\H.HttpGate.Actions\H.HttpGate.Actions.csproj" />
     <ProjectReference Include="..\H.HttpGate.Contracts.Public\H.HttpGate.Contracts.Public.csproj" />
     <ProjectReference Include="..\H.HttpGate.Core\H.HttpGate.Core.csproj" />
+    <ProjectReference Include="..\H.Replication.AzureServiceBus\H.Replication.AzureServiceBus.csproj" />
     <ProjectReference Include="..\H.Replication.MongoDB\H.Replication.MongoDB.csproj" />
   </ItemGroup>
 

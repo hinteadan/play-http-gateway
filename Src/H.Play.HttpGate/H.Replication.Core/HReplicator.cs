@@ -8,9 +8,9 @@ namespace H.Replication.Core
     {
         #region Construct
         readonly ImAnHReplicationRegistry replicationRegistry;
-        readonly ImAnHReplicationProcessingQueue replicationProcessingQueue;
+        readonly ImAnHReplicationProcessingQueuePusher replicationProcessingQueue;
         readonly ImALogger log;
-        public HReplicator(ImAnHReplicationRegistry replicationRegistry, ImAnHReplicationProcessingQueue replicationProcessingQueue)
+        public HReplicator(ImAnHReplicationRegistry replicationRegistry, ImAnHReplicationProcessingQueuePusher replicationProcessingQueue)
         {
             this.replicationRegistry = replicationRegistry;
             this.replicationProcessingQueue = replicationProcessingQueue;
@@ -23,7 +23,7 @@ namespace H.Replication.Core
             if (!(await replicationRegistry.Append(replicationRequest).LogError(log, "replicationRegistry.Append(replicationRequest)")).Ref(out var regRes, out var replicationRegistryEntry))
                 return regRes;
 
-            if (!(await replicationProcessingQueue.Enqueue(replicationRegistryEntry).LogError(log, "replicationProcessingQueue.Enqueue(replicationRegistryEntry)")).Ref(out var qRes, out replicationRegistryEntry))
+            if (!(await replicationProcessingQueue.Enqueue(replicationRegistryEntry).LogError(log, "replicationProcessingQueue.Enqueue(replicationRegistryEntry)")).Ref(out var qRes, out var replicationQueueEntry))
                 return qRes;
 
             return true;

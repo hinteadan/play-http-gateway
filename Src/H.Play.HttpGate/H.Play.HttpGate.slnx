@@ -29,6 +29,15 @@
     <Project Path="H.Replication.AzureTableStorage/H.Replication.AzureTableStorage.csproj" Id="526ea1bd-d96f-4ac6-b266-0fc38efdfb81" />
     <Project Path="H.Replication.Contracts/H.Replication.Contracts.csproj" Id="d2db9a9f-0304-4365-b5dc-b06c9017f911" />
     <Project Path="H.Replication.Core/H.Replication.Core.csproj" Id="1a837c9f-537e-4297-97e5-586dd965befc" />
+    <Project Path="H.Replication.DataCopy.Processor/H.Replication.DataCopy.Processor.csproj" Id="c9c8969c-1b1f-4f75-b7b1-2c7ea519021f" />
+  </Folder>
+  <Folder Name="/H.HttpGate/AzureTableStorageReplication/AzureServiceBus/">
+    <Project Path="H.Replication.AzureServiceBus/H.Replication.AzureServiceBus.csproj" Id="835a9dfe-48b0-4880-aecf-9a5d44605d55" />
+  </Folder>
+  <Folder Name="/H.HttpGate/AzureTableStorageReplication/DataCopyService/">
+    <Project Path="H.Replication.DataCopy.Host.AspNetCore/H.Replication.DataCopy.Host.AspNetCore.csproj" Id="20232836-45e8-4c3e-baef-cc79737b600b" />
+    <Project Path="H.Replication.DataCopy.Host.AzureFunctions/H.Replication.DataCopy.Host.AzureFunctions.csproj" Id="32dbea1f-1c8d-4c4e-8fd3-082eec6dcfef" />
+    <Project Path="H.Replication.DataCopy.Host.Console/H.Replication.DataCopy.Host.Console.csproj" Id="2b078245-58c0-48ef-af57-6e3776a994c4" />
   </Folder>
   <Folder Name="/H.HttpGate/AzureTableStorageReplication/MongoDB/">
     <Project Path="H.Replication.MongoDB/H.Replication.MongoDB.csproj" Id="cc4162f8-23d5-4ad8-a287-cb50516a20af" />

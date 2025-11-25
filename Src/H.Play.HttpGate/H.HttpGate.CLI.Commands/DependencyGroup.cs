@@ -1,6 +1,7 @@
 ﻿using H.HttpGate.Testicles.AzureTableStorage;
 using H.Necessaire;
 using H.Play.HttpGate.UseCases;
+using H.Replication.AzureServiceBus;
 using H.Replication.MongoDB;
 
 namespace H.HttpGate.CLI.Commands
@@ -12,7 +13,8 @@ namespace H.HttpGate.CLI.Commands
             dependencyRegistry
                 .WithHHttpGateTesticlesAzureTableStorage()
                 .WithHHttpGateUseCases()
-                .WithHReplicationMongoDBCore()
+                .WithHReplicationMongoDB()
+                .WithHReplicationAzureServiceBus()
                 .RegisterAlwaysNew<DebugCommand>(() => new DebugCommand())
                 ;
         }

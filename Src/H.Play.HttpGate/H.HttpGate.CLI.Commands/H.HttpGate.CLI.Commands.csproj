@@ -9,6 +9,8 @@
     <ProjectReference Include="..\..\..\H.Necessaire\Src\H.Necessaire\CLI\H.Necessaire.Runtime.CLI\H.Necessaire.Runtime.CLI.csproj" />
     <ProjectReference Include="..\H.HttpGate.Testicles.AzureTableStorage\H.HttpGate.Testicles.AzureTableStorage.csproj" />
     <ProjectReference Include="..\H.HttpGate.UseCases\H.HttpGate.UseCases.csproj" />
+    <ProjectReference Include="..\H.Replication.AzureServiceBus\H.Replication.AzureServiceBus.csproj" />
+    <ProjectReference Include="..\H.Replication.AzureTableStorage\H.Replication.AzureTableStorage.csproj" />
     <ProjectReference Include="..\H.Replication.MongoDB\H.Replication.MongoDB.csproj" />
   </ItemGroup>
 

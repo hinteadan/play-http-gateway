@@ -1,6 +1,7 @@
 ﻿using H.HttpGate.Actions;
 using H.HttpGate.Actions.AzureTableStorageReplication;
 using H.HttpGate.Core;
+using H.Replication.AzureServiceBus;
 using H.Replication.MongoDB;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
@@ -23,7 +24,8 @@ namespace H.HttpGate.Ocelot
                 .AddHHttpGateCoreServices()
                 .AddHHttpGateActionsServices()
                 .AddHHttpGateActionsAzureTableStorageReplicationServices()
-                .AddHReplicationMongoDBCore()
+                .AddHReplicationMongoDB()
+                .AddHReplicationAzureServiceBus()
                 .AddSingleton<HHttpGateInvoker>()
                 ;
 

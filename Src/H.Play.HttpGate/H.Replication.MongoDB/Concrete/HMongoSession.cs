@@ -2,7 +2,7 @@
 using H.Replication.Contracts.DataContracts;
 using MongoDB.Driver;
 
-namespace H.Replication.MongoDB
+namespace H.Replication.MongoDB.Concrete
 {
     internal class HMongoSession : IDisposable
     {

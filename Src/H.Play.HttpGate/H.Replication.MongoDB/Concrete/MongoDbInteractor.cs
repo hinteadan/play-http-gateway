@@ -1,6 +1,6 @@
 ﻿using H.Necessaire;
 
-namespace H.Replication.MongoDB
+namespace H.Replication.MongoDB.Concrete
 {
     internal class MongoDbInteractor
     {
@@ -10,7 +10,7 @@ namespace H.Replication.MongoDB
         public MongoDbInteractor(MongoDbConfigProvider mongoDbConfigProvider)
         {
             this.mongoDbConfigProvider = mongoDbConfigProvider;
-            this.log = HApp.Deps.GetLogger<MongoDbInteractor>("H.Replication.MongoDB.Core");
+            this.log = HApp.Deps.GetLogger<MongoDbInteractor>("H.Replication.MongoDB");
         }
         #endregion
 

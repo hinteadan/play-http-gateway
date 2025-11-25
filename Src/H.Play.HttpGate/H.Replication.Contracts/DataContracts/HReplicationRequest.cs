@@ -13,6 +13,7 @@ namespace H.Replication.Contracts.DataContracts
         public string Source { get; set; }
 
         public string PayloadID { get; set; }
+        public string PayloadGroup { get; set; }
         public string PayloadType { get; set; }
         public string PayloadContentType { get; set; }
         public string Payload { get; set; }

@@ -5,6 +5,11 @@
       "commandName": "Project"
     },
 
+    "CLI - debug azuresb": {
+      "commandName": "Project",
+      "commandLineArgs": "debug AzureServiceBusDebugger"
+    },
+
     "CLI - debug mongo": {
       "commandName": "Project",
       "commandLineArgs": "debug MongoDbDebugger"
