@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\H.Necessaire\Src\H.Necessaire\H.Necessaire.Runtime\H.Necessaire.Runtime.csproj" />
+    <PackageReference Include="H.Necessaire.Runtime" Version="2.46.0" />
   </ItemGroup>
 
 </Project>

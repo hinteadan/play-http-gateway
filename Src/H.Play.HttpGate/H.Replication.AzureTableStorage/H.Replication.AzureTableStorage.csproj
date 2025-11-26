@@ -6,12 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\H.Necessaire\Src\H.Necessaire\H.Necessaire\H.Necessaire.csproj" />
     <ProjectReference Include="..\H.Replication.Contracts\H.Replication.Contracts.csproj" />
     <ProjectReference Include="..\H.Replication.Core\H.Replication.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="H.Necessaire" Version="2.46.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
   </ItemGroup>
 

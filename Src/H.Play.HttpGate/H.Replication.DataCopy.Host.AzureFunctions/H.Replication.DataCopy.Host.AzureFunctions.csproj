@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="H.Necessaire" Version="2.46.0" />
+    <PackageReference Include="H.Necessaire.Serialization" Version="2.46.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.23.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.51.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="2.50.0" />
@@ -18,8 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\H.Necessaire\Src\H.Necessaire\H.Necessaire.Serialization\H.Necessaire.Serialization.csproj" />
-    <ProjectReference Include="..\..\..\H.Necessaire\Src\H.Necessaire\H.Necessaire\H.Necessaire.csproj" />
     <ProjectReference Include="..\H.Replication.DataCopy.Processor\H.Replication.DataCopy.Processor.csproj" />
   </ItemGroup>
 

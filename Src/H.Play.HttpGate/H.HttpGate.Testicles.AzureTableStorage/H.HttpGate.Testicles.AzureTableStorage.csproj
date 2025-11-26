@@ -8,10 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Azure.Data.Tables" Version="12.11.0" />
     <PackageReference Include="Bogus" Version="35.6.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\H.Necessaire\Src\H.Necessaire\H.Necessaire\H.Necessaire.csproj" />
+    <PackageReference Include="H.Necessaire" Version="2.46.0" />
   </ItemGroup>
 
   <ItemGroup>

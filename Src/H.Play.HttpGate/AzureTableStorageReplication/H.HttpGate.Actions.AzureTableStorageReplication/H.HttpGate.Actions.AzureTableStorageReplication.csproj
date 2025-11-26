@@ -6,13 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\H.Necessaire\Src\H.Necessaire\H.Necessaire.Serialization\H.Necessaire.Serialization.csproj" />
-    <ProjectReference Include="..\..\..\..\H.Necessaire\Src\H.Necessaire\H.Necessaire\H.Necessaire.csproj" />
     <ProjectReference Include="..\..\H.HttpGate.Contracts.Public\H.HttpGate.Contracts.Public.csproj" />
     <ProjectReference Include="..\..\H.Replication.AzureTableStorage\H.Replication.AzureTableStorage.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+	<PackageReference Include="H.Necessaire" Version="2.46.0" />
+	<PackageReference Include="H.Necessaire.Serialization" Version="2.46.0" />
 	<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
 	<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.0" />
   </ItemGroup>
