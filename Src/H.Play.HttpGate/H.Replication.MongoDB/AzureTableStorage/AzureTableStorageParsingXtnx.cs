@@ -91,11 +91,15 @@ namespace H.Replication.MongoDB.AzureTableStorage
         }
 
         static readonly Regex oDataMetaPropsRegex = new Regex(",\"[^\"]+@odata\\.type\":\"[^\"]+\"");
+        static readonly Regex numericPropValuePropsRegex = new Regex(":\"(\\d+)\"");
         static string RemoveODataMetaProps(this string json)
         {
             if (json.IsEmpty())
                 return json;
-            return oDataMetaPropsRegex.Replace(json, string.Empty);
+            string result = json;
+            result = oDataMetaPropsRegex.Replace(result, string.Empty);
+            result = numericPropValuePropsRegex.Replace(result, ":$1");
+            return result;
         }
     }
 }
