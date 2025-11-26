@@ -2,6 +2,7 @@
 using H.Replication.Contracts.DataContracts;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
+using System.Text.RegularExpressions;
 
 namespace H.Replication.MongoDB.AzureTableStorage
 {
@@ -84,9 +85,17 @@ namespace H.Replication.MongoDB.AzureTableStorage
                     PartitionKey = idParts[1],
                     RowKey = idParts[2],
                     ReplicationOperation = replicationRequest.Operation,
-                    Document = replicationRequest.Payload.MorphIfNotEmpty(x => BsonSerializer.Deserialize<BsonDocument>(x), defaultTo: null),
+                    Document = replicationRequest.Payload.MorphIfNotEmpty(x => BsonSerializer.Deserialize<BsonDocument>(x.RemoveODataMetaProps()), defaultTo: null),
                 }
                 ;
+        }
+
+        static readonly Regex oDataMetaPropsRegex = new Regex(",\"[^\"]+@odata\\.type\":\"[^\"]+\"");
+        static string RemoveODataMetaProps(this string json)
+        {
+            if (json.IsEmpty())
+                return json;
+            return oDataMetaPropsRegex.Replace(json, string.Empty);
         }
     }
 }

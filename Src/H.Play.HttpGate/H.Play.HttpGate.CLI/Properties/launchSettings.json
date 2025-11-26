@@ -5,6 +5,11 @@
       "commandName": "Project"
     },
 
+    "CLI - ts data cleanup": {
+      "commandName": "Project",
+      "commandLineArgs": "TableStorageDataCleanup"
+    },
+
     "CLI - debug azuresb": {
       "commandName": "Project",
       "commandLineArgs": "debug AzureServiceBusDebugger"
