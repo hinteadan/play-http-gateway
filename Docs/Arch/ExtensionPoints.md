@@ -59,9 +59,9 @@ Therefore if any additional action needs to taken, apart from the current replic
 1. Implement a new `ImAnHReplicationRequestProcessor`
 1. Change `HReplicationProcessingQueueProcessor` implementation
     1. Inject multiple `ImAnHReplicationRequestProcessor`
-        1. `IEnumerable<ImAnHReplicationRegistry>` instead of `ImAnHReplicationRegistry`
+        1. `IEnumerable<ImAnHReplicationRequestProcessor>` instead of `ImAnHReplicationRequestProcessor`
     1. In `async Task<OperationResult> ProcessReplicationRequest(HReplicationRequest replicationRequest)`
-        1. Iterate `IEnumerable<ImAnHReplicationRegistry>`
+        1. Iterate `IEnumerable<ImAnHReplicationRequestProcessor>`
         1. Call `Process` on each one
 
 ---
