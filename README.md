@@ -23,7 +23,9 @@ When testing locally, the TS Client cannot resolve such a host (gawd knows why, 
 
 ## Usage
 
-[WiP]
+For the consuming app, the only required thing to do is:
+
+**Change the Azure TS Base Endpoint** from **`<AccountName>.table.core.windows.net`** to **`<AccountName>.httpgate.host.name.tld`**.
 
 ### Implement a gate action
 
@@ -191,10 +193,67 @@ flowchart TD
     
 ```
 
-## Components
+## Summary of High Level Components to Actual Components
 
 - **HTTP Gate**: AppService, implemented in `H.HttpGate.Runtime.Host.AspNetCore`
 - **Replication Registry**: MongoDB, implemented in `H.Replication.MongoDB`
-- **Replication Processing Queue**: _[**WiP** - will be Azure SB Queue]_
-- **Data Replication Service**: _[**WiP** - will be Azure AppService or Azure Functions]_
-- **Replication Destination**: MongoDB
+- **Replication Processing Queue**: Azure Service Bus Queue, implemented in `H.Replication.AzureServiceBus`
+- **Data Replication Service**: **Azure Functions Host** _(AppService Host and Console Host options available as well)_, implemented in `H.Replication.DataCopy.Host.AzureFunctions` with actual logic implemented in `H.Replication.DataCopy.Processor`
+- **Replication Destination**: MongoDB, with logic impemented in `H.Replication.MongoDB`
+
+---
+
+# Implementation Details
+
+Below are the docs that describe the implementation details of the above PoC.
+
+To better understand the implementation and how stuff actually happens.
+
+
+## Relevant Cross Module Operation and Data Contracts
+
+These are the relevant `interfaces` and `DTOs` that are known _(globally used)_ by almost all the modules.
+
+[Cross Module Contracts ↗️](/Docs/Arch/CrossModuleContracts.md)
+
+
+
+## Most Relevant Pieces
+
+This part presents the most relevant parts of the solution.
+
+At a higher level at first without their internal details, and further down with internal details as well.
+
+[Most Relevant Pieces ↗️](/Docs/Arch/MostRelevantPieces.md)
+
+
+
+## Modules Tree
+
+This part presents the entire modules tree.
+
+Highlights the most relevant pieces and presents the enitre dependency tree
+
+[Modules Tree ↗️](/Docs/Arch/ModulesTree.md)
+
+
+
+## Extension Points
+
+This part presents the extension points of the solution.
+
+Such as:
+- Run healthchecks on replications
+- Rerun defunct or failed replications
+- Adding a new action when TS data change occurs
+- Adding a new replication destination
+- Changing the underlying tech of some components 
+    - E.g.: Use RabbitMQ
+    - Or use another destination storage such as Cosmos, Raven, Mongo or even another TS
+    - Use another storage for the replication registry
+    - Implement a data mapping/transformation pipeline
+    - Etc.
+
+[Extension Points ↗️](/Docs/Arch/ExtensionPoints.md)
+
+---

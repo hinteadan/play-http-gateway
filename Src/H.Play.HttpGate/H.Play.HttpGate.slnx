@@ -2,6 +2,12 @@
   <Folder Name="/Docs/">
     <File Path="../../README.md" />
   </Folder>
+  <Folder Name="/Docs/Arch/">
+    <File Path="../../Docs/Arch/CrossModuleContracts.md" />
+    <File Path="../../Docs/Arch/ExtensionPoints.md" />
+    <File Path="../../Docs/Arch/ModulesTree.md" />
+    <File Path="../../Docs/Arch/MostRelevantPieces.md" />
+  </Folder>
   <Folder Name="/H.HttpGate/">
     <Project Path="H.HttpGate.Actions/H.HttpGate.Actions.csproj" Id="b8ae3062-180e-4bfb-9d38-daf5b742df61" />
     <Project Path="H.HttpGate.CLI.Commands/H.HttpGate.CLI.Commands.csproj" Id="67843ed3-9293-4b16-88fc-a7d8e1bac266" />
