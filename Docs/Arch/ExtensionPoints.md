@@ -24,6 +24,10 @@ Some possible extension scenarios and how to approach them
 
 ---
 
+## Use as Data Migration Tool
+
+---
+
 ## Replication Health Checks
 
 As a safety net, for resiliency, a periodic replication health check could be implemented.
