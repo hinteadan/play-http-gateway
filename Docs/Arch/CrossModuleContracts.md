@@ -171,6 +171,8 @@ Relevant `interfaces` and `DTOs` that are known globally across all modules and 
 
 ---
 
+## [Home ↗️](/README.md)
+
 ## Concrete Implementations
 
 Concrete implementations of these APIs are described in the following doc:

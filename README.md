@@ -251,7 +251,6 @@ Such as:
     - E.g.: Use RabbitMQ
     - Or use another destination storage such as Cosmos, Raven, Mongo or even another TS
     - Use another storage for the replication registry
-    - Implement a data mapping/transformation pipeline
     - Etc.
 
 [Extension Points ↗️](/Docs/Arch/ExtensionPoints.md)

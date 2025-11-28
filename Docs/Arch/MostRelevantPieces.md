@@ -225,3 +225,36 @@ HReplicationProcessingQueueProcessor <--> ImAnHReplicationRequestProcessor:Proce
 HReplicationProcessingQueueProcessor <--> ImAnHReplicationRegistry:Update
 
 ```
+
+---
+
+## [Home ↗️](/README.md)
+
+
+## Relevant Cross Module Operation and Data Contracts
+
+These are the relevant `interfaces` and `DTOs` that are known _(globally used)_ by almost all the modules.
+
+[Cross Module Contracts ↗️](/Docs/Arch/CrossModuleContracts.md)
+
+
+
+## Extension Points
+
+This part presents the extension points of the solution.
+
+Such as:
+- Run healthchecks on replications
+- Rerun defunct or failed replications
+- Adding a new action when TS data change occurs
+- Adding a new replication destination
+- Changing the underlying tech of some components 
+    - E.g.: Use RabbitMQ
+    - Or use another destination storage such as Cosmos, Raven, Mongo or even another TS
+    - Use another storage for the replication registry
+    - Implement a data mapping/transformation pipeline
+    - Etc.
+
+[Extension Points ↗️](/Docs/Arch/ExtensionPoints.md)
+
+---
