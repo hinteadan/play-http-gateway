@@ -26,6 +26,18 @@ Some possible extension scenarios and how to approach them
 
 ## Use as Data Migration Tool
 
+General Strategy is to skip the HTTP Gate Action Step and use everything else
+
+1. Create a Console App
+1. Reference
+    1. `H.HttpGate.Core`
+    1. `H.Replication.AzureServiceBus`
+    1. `H.Replication.MongoDB`
+1. Inject `ImAnHReplicator`
+1. Implement iteration of the entire TS
+1. For Each TS entity
+    1. Call `ImAnHReplicator.Enqueue`
+
 ---
 
 ## Replication Health Checks
