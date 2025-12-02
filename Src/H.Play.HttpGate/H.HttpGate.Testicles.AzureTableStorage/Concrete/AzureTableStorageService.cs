@@ -50,6 +50,8 @@ namespace H.HttpGate.Testicles.AzureTableStorage.Concrete
             HGateTableStorageTestData data = dummyDataGenerator.NewHGateTableStorageTestData();
 
             await tableClient.UpsertEntityAsync(data, mode: TableUpdateMode.Replace);
+
+            await tableClient.SubmitTransactionAsync([new TableTransactionAction(TableTransactionActionType.UpsertReplace, data)]);
         }
     }
 }
