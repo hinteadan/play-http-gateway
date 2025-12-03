@@ -9,6 +9,7 @@
     <PackageReference Include="Azure.Data.Tables" Version="12.11.0" />
     <PackageReference Include="Bogus" Version="35.6.5" />
     <PackageReference Include="H.Necessaire" Version="2.46.0" />
+	<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,5 +19,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Secrets\**\*.*" />
   </ItemGroup>
+
+  <Import Project="..\H.Config\H.Config.projitems" Label="Shared" />
 
 </Project>

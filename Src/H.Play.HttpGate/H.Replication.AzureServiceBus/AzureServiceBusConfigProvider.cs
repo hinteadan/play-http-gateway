@@ -1,14 +1,38 @@
-﻿using H.Necessaire;
+﻿using H.Config;
+using H.Necessaire;
+using Microsoft.Extensions.Configuration;
 
 namespace H.Replication.AzureServiceBus
 {
     internal class AzureServiceBusConfigProvider
     {
-        static readonly Lazy<AzureServiceBusConfig> lazyConfig = new Lazy<AzureServiceBusConfig>(LoadConfigFromEmbeddedSecrets);
+        #region Construct
+        readonly Lazy<AzureServiceBusConfig> lazyConfig;
+        readonly IConfiguration configuration;
+        public AzureServiceBusConfigProvider(IConfiguration configuration = null)
+        {
+            this.configuration = configuration;
+            lazyConfig = new Lazy<AzureServiceBusConfig>(LoadConfig);
+        }
+        #endregion
 
         public OperationResult<AzureServiceBusConfig> GetConfig()
         {
             return HSafe.Run(() => lazyConfig.Value);
+        }
+
+        AzureServiceBusConfig LoadConfig()
+        {
+            return
+                configuration.GetConfigSection("HReplication", "AzureServiceBus").MorphIfNotNull(x => new AzureServiceBusConfig
+                {
+                    Keys = x.GetConfigValues(nameof(AzureServiceBusConfig.Keys)),
+                    ConnectionStrings = x.GetConfigValues(nameof(AzureServiceBusConfig.ConnectionStrings)),
+                    ReplicationQueueName = x.GetConfigValue(nameof(AzureServiceBusConfig.ReplicationQueueName)),
+                })
+                ??
+                LoadConfigFromEmbeddedSecrets()
+                ;
         }
 
         static AzureServiceBusConfig LoadConfigFromEmbeddedSecrets()

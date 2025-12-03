@@ -23,6 +23,8 @@ When testing locally, the TS Client cannot resolve such a host (gawd knows why, 
 
 ## Usage
 
+[Runtime Config ↗️](/Docs/CONFIG.md)
+
 For the consuming app, the only required thing to do is:
 
 **Change the Azure TS Base Endpoint** from **`<AccountName>.table.core.windows.net`** to **`<AccountName>.httpgate.host.name.tld`**.
