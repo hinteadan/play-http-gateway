@@ -50,10 +50,15 @@ namespace H.Replication.MongoDB.Concrete
                             case HReplicationOperation.Delete:
                                 await mongoCollection.DeleteOneAsync(x => x["PartitionKey"] == replicationOperation.PartitionKey && x["RowKey"] == replicationOperation.RowKey);
                                 break;
+                            case HReplicationOperation.Merge:
+                                if (replicationOperation.Document is null)
+                                    throw new OperationResultException("replicationOperation.Document is null");
+                                BsonDocument newData = replicationOperation.Document;
+                                await mongoCollection.UpdateOneAsync(x => x["PartitionKey"] == replicationOperation.PartitionKey && x["RowKey"] == replicationOperation.RowKey, newData, new UpdateOptions { IsUpsert = true });
+                                break;
                             case HReplicationOperation.Upsert:
                             case HReplicationOperation.Insert:
                             case HReplicationOperation.Update:
-                            case HReplicationOperation.Merge:
                             default:
                                 if (replicationOperation.Document is null)
                                     throw new OperationResultException("replicationOperation.Document is null");

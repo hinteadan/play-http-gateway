@@ -38,6 +38,20 @@ General Strategy is to skip the HTTP Gate Action Step and use everything else
 1. For Each TS entity
     1. Call `ImAnHReplicator.Enqueue`
 
+> ⚠️ NOTE: Use Azure TS's Timestamp property as the ReplicationRegistryEntry timestamp
+
+> Use batch inserts to lighten up the stress on MongoDB
+
+---
+
+## Use this mechanism as an extension for the current TS Backup
+
+Now, while the TS backup is executing, we are losing changesets on the data during the processing period.
+We could track this changes, as the backup is executing, with the current solution.
+After the backup is done, we can also apply the tracked changes, therefore having a fully reusable backup up to date X.
+
+> NOTE: Side... have the SQL snapshot be done at the exact same date point, so we have both SQL and TS backed up at timestamp X.
+
 ---
 
 ## Replication Health Checks

@@ -22,4 +22,6 @@
 	<EmbeddedResource Include="Secrets\**\*.*" />
   </ItemGroup>
 
+  <Import Project="..\H.Config\H.Config.projitems" Label="Shared" />
+
 </Project>

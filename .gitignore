@@ -424,5 +424,9 @@ version.txt
 
 **/Secrets/**/*.*
 
+**/appsettings.*.*.json
+
+
+
 **/H.HttpGate.Runtime.Host.AspNetCore/ocelot*.json
 **/ocelot.Development.*.json

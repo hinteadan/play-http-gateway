@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/Docs/">
+    <File Path="../../Docs/CONFIG.md" />
     <File Path="../../README.md" />
   </Folder>
   <Folder Name="/Docs/Arch/">
@@ -9,6 +10,7 @@
     <File Path="../../Docs/Arch/MostRelevantPieces.md" />
   </Folder>
   <Folder Name="/H.HttpGate/">
+    <Project Path="H.Config/H.Config.shproj" Id="2277173b-d3a0-4019-88b6-86f1512280ef" />
     <Project Path="H.HttpGate.Actions/H.HttpGate.Actions.csproj" Id="b8ae3062-180e-4bfb-9d38-daf5b742df61" />
     <Project Path="H.HttpGate.CLI.Commands/H.HttpGate.CLI.Commands.csproj" Id="67843ed3-9293-4b16-88fc-a7d8e1bac266" />
     <Project Path="H.HttpGate.Contracts.Public/H.HttpGate.Contracts.Public.csproj" Id="5a229a32-a8ed-45d3-b2ff-c001721958a9" />
